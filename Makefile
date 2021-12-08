@@ -17,5 +17,8 @@ run:  ## Run the full application
 run-detached:  ## Run the full application in detached mode
 	docker-compose up -d
 
+stop:  ## Stop any running containers, e.g. those launched by `run-detached`
+	docker-compose stop
+
 clean:  ## Stop running containers and delete volumes
 	docker-compose stop && docker-compose down --volume
