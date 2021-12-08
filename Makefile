@@ -11,3 +11,7 @@ ingest:  ## Ingest the Natural Earth Admin 0 1:50m Country boundaries
 
 run:  ## Run the full application
 	docker-compose up
+
+run-detached:  ## Run the full application in detached mode
+	docker-compose up -d
+
