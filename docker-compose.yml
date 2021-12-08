@@ -21,5 +21,17 @@ services:
     env_file:
       - pg.env
 
+  flask-frontend:
+    image: flaskvectortiles_app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flaskapp
+    ports:
+      - 8000:8000
+    depends_on:
+      - pg_tileserv
+      - pg_tileserv_db
+
 volumes:
   pg_tileserv_db: null
