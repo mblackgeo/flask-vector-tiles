@@ -3,12 +3,7 @@ version: "3"
 
 services:
   pg_tileserv:
-    image: pramsey/pg_tileserv:latest-alpine-3.12
-    build:
-      context: .
-      dockerfile: Dockerfile.alpine
-      args:
-        VERSION: latest-alpine-3.12
+    image: pramsey/pg_tileserv:latest
     container_name: pg_tileserv
     env_file:
       - pg_tileserv.env
