@@ -5,8 +5,8 @@ services:
   pg_tileserv:
     image: pramsey/pg_tileserv:latest
     container_name: pg_tileserv
-    env_file:
-      - pg_tileserv.env
+    environment:
+      - DATABASE_URL=postgres://tileserv:tileserv@pg_tileserv_db/tileserv
     depends_on:
       - pg_tileserv_db
     ports:
@@ -18,8 +18,10 @@ services:
     volumes:
       - ./data:/work
       - pg_tileserv_db:/var/lib/postgresql/data
-    env_file:
-      - pg.env
+    environment:
+      - POSTGRES_USER=tileserv
+      - POSTGRES_PASSWORD=tileserv
+      - POSTGRES_DB=tileserv
 
   flask-frontend:
     image: flaskvectortiles_app:latest
